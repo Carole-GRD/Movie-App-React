@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import NavBar from './containers/nav-bar/nav-bar';
+
+import Movie from './pages/movie/movie';
+import Search from './pages/search/search';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <NavBar />
+        <Routes>
+          <Route path='/search' element={<Search />} />
+          <Route path='/popular' element={<Movie screen="popular" />} />
+          <Route path='/nowplaying' element={<Movie screen="now_playing" />} />
+          <Route path='*' element={<Navigate to='/search' />} />
+        </Routes>
+        {/* <h1>Ceci est toujours là</h1> */}
+        {/* ↓ plus besoin car on a les routes */}
+        {/* <Search /> */}
+      </div>
+    </BrowserRouter>
   );
 }
 

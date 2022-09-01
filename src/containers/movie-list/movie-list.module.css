@@ -1,0 +1,40 @@
+.movieGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    padding: 1em;
+}
+
+.movie {
+    display: flex;
+    height: 400px;
+    background-color: antiquewhite;
+    border-radius: 1em;
+}
+
+.movie img {
+    width: 50%;
+    border-radius: 1em 0 0 1em;
+}
+
+.movie img, .movie div {
+    flex: 1;
+}
+
+.movie h1, .movie p {
+    overflow: hidden;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info h1 {
+    flex: 1;
+    margin: 0;
+}
+
+.info p {
+    flex: 3;
+}
